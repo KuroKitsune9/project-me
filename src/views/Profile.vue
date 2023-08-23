@@ -4,7 +4,6 @@
 <div class="max-w-xs">
     <div class="bg-white shadow-xl rounded-lg py-3">
         <div class="photo-wrapper p-2">
-            
         </div>
         <div class="p-2">
             <h3 class="text-center text-xl text-gray-900 font-medium leading-8">{{ getUser.name }}</h3>
@@ -14,10 +13,14 @@
                 <tbody>
                 <tr>
                     <td class="px-2 py-2 text-gray-500 font-semibold">Phone</td>
+                    <td class="px-2 py-2 text-gray-500 font-semibold">:</td>
                     <td class="px-2 py-2">{{ getUser.phone }}</td>
                 </tr>
                 <tr>
                     <td class="px-2 py-2 text-gray-500 font-semibold">Email</td>
+                    <td class="px-2 py-2 text-gray-500 font-semibold">:
+                        
+                    </td>
                     <td class="px-2 py-2">{{ getUser.email }}</td>
                 </tr>
             </tbody></table>
