@@ -50,7 +50,7 @@
                 <div class="md:w-1/4">
                     <div class="bg-white rounded-lg shadow-md p-6">
                         <h2 class="text-lg font-semibold mb-4">Summary</h2>
-                        <div class="flex justify-between mb-2" >
+                        <div class="flex justify-between mb-2">
                             <span>Subtotal</span>
                             <span>$19.99</span>
                         </div>
