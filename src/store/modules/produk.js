@@ -1,10 +1,12 @@
 // import { createStore } from "vuex";
 import axios from "axios";
+import keranjang from "./keranjang";
 
 const product = {
     namespaced: true,
     state: {
         productsData: [],
+        Keranjang: []
     },
     getters: {
         getProducts: (state) => state.productsData,
@@ -38,6 +40,28 @@ const product = {
                 console.log(error);
             }
         },
+        async AddKeranjang({ commit, dispatch }, variationId) {
+            try {
+                const response = await axios.post(
+                    "https://ecommerce.olipiskandar.com/api/v1/carts/add", {
+                    "variation_id": variationId,
+                    "qty": 1,
+                    "temp_user_id": null
+                }, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem("token")}`
+                    }
+                });
+                commit("ADD_KERANJANG", response.data)
+                console.log(response.data)
+            } catch (error) {
+                console.error(error);
+                
+            }
+            finally {
+                dispatch("keranjang/fetchKeranjang", null,{root: true})
+            }
+        },
     },
     mutations: {
         SET_PRODUCTS(state, products) {
@@ -46,7 +70,9 @@ const product = {
         SET_SINGLE_PRODUCT(state, product) {
             state.singleProducts = product;
         },
-
+        ADD_KERANJANG(state, Keranjang) {
+            state.AddKeranjang = Keranjang
+        }
     }
 }
 

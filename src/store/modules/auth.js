@@ -1,4 +1,6 @@
 import axios from "axios";
+import swal from "sweetalert";
+
 
 const auth = {
     namespaced: true,
@@ -22,7 +24,7 @@ const auth = {
 
                 // Save token to localStorage
                 localStorage.setItem("token", token);
-
+                swal("success", "you success login", "success");
                 commit("SET_TOKEN", token);
                 console.log("Token saved:", token);
                 return true;

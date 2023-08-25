@@ -9,6 +9,7 @@ import category from "./modules/category.js";
 import auth from "./modules/auth.js";
 // import surah from "./modules/surah.js";
 import brand from "./modules/brand.js";
+import keranjang from "./modules/keranjang.js"
 
 const store = createStore({
     state: {
@@ -24,7 +25,8 @@ const store = createStore({
         category,
         auth,
         // surah,
-        brand
+        brand,
+        keranjang
     },
 });
 

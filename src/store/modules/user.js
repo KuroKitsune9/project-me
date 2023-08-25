@@ -17,8 +17,8 @@ const user = {
                 const dataUser = await axios.get(
                     'https://ecommerce.olipiskandar.com/api/v1/user/info', {
                     headers: {
-                        Authorization: `Bearer ${token}`
-                        
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+
                     }
                 })
                 console.log(dataUser.data)

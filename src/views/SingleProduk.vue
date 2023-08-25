@@ -7,9 +7,9 @@
                         <li class="text-left">
                             <div class="-m-1">
                                 <router-link to="/">
-                                <a href="#"
-                                    class="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800">
-                                    Home </a>
+                                    <a href="#"
+                                        class="rounded-md p-1 text-sm font-medium text-gray-600 focus:text-gray-900 focus:shadow hover:text-gray-800">
+                                        Home </a>
                                 </router-link>
                             </div>
                         </li>
@@ -33,7 +33,9 @@
                         <div class="lg:flex lg:items-start">
                             <div class="lg:order-2 lg:ml-5">
                                 <div class="max-w-xl overflow-hidden rounded-lg">
-                                    <img class="h-full w-full max-w-full object-cover" :src="product.image" alt="" />
+                                    <img class="h-full w-full max-w-full object-cover"
+                                        src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Bring_Me_The_Horizont_-_Southside_Festival_2022_-_IMG_4429_-_1_%28Cropped%29.jpg"
+                                        alt="Fotone" />
                                 </div>
                             </div>
 
@@ -41,15 +43,21 @@
                                 <div class="flex flex-row items-start lg:flex-col">
                                     <button type="button"
                                         class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center">
-                                        <img class="h-full w-full object-cover" :src="product.image" alt="" />
+                                        <img class="h-full w-full object-cover"
+                                            src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Bring_Me_The_Horizont_-_Southside_Festival_2022_-_IMG_4429_-_1_%28Cropped%29.jpg"
+                                            alt="" />
                                     </button>
                                     <button type="button"
                                         class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
-                                        <img class="h-full w-full object-cover" :src="product.image" alt="" />
+                                        <img class="h-full w-full object-cover"
+                                            src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Bring_Me_The_Horizont_-_Southside_Festival_2022_-_IMG_4429_-_1_%28Cropped%29.jpg"
+                                            alt="" />
                                     </button>
                                     <button type="button"
                                         class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
-                                        <img class="h-full w-full object-cover" :src="product.image" alt="" />
+                                        <img class="h-full w-full object-cover"
+                                            src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Bring_Me_The_Horizont_-_Southside_Festival_2022_-_IMG_4429_-_1_%28Cropped%29.jpg"
+                                            alt="" />
                                     </button>
                                 </div>
                             </div>
@@ -92,7 +100,7 @@
                                         class=""></path>
                                 </svg>
                             </div>
-                            <p class="ml-2 text-sm font-medium text-gray-500">{{ product.rating  }}</p>
+                            <p class="ml-2 text-sm font-medium text-gray-500">{{ product.rating }}</p>
                         </div>
 
                         <h2 class="mt-8 text-base text-gray-900">Category</h2>
@@ -111,16 +119,28 @@
                                 <h1 class="text-3xl font-bold">${{ product.base_price }}</h1>
                                 <!-- <span class="text-base">/month</span> -->
                             </div>
-
-                            <button type="button"
-                                class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 mr-3 h-5 w-5" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                                </svg>
-                                Add to cart
-                            </button>
+                            <div v-if="token">
+                                <button type="button" @click="AddKeranjang(product.variations[0].id)"
+                                    class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 mr-3 h-5 w-5" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                    </svg>
+                                    Add to cart
+                                </button>
+                            </div>
+                            <div v-else>
+                                <router-link to="/login"><button type="submit"
+                                        class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 mr-3 h-5 w-5" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                        </svg>
+                                        Add to cart
+                                    </button></router-link>
+                            </div>
                         </div>
 
                         <ul class="mt-8 space-y-2">
@@ -167,8 +187,9 @@
             </div>
             <div v-else>
                 <center>
-                <img src="https://hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="Girl in a jacket" width="500" height="600">
-            </center>
+                    <img src="https://hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="Girl in a jacket" width="500"
+                        height="600">
+                </center>
             </div>
         </div>
     </section>
@@ -178,6 +199,11 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
+    data() {
+        return {
+            token: null
+        }
+    },
     computed: {
         ...mapGetters("produk", ["getProductById"]),
         product() {
@@ -185,16 +211,19 @@ export default {
         },
     },
     methods: {
-        ...mapActions("produk", ["fetchSingleProduct"]),
-        ...mapActions("produk", ["fetchProduct"])
+        ...mapActions("produk", ["fetchSingleProduct", "fetchProduct", "AddKeranjang"]),
+        ...mapActions("keranjang", ["fetchKeranjang"]),
     },
     beforeMount() {
         this.fetchProduct()
+        this.fetchKeranjang()
     },
     mounted() {
+        const cektoken = localStorage.getItem("token");
         const productId = this.$route.params.id;
-        console.log("Fetching single product with ID:", productId);
         this.fetchSingleProduct(productId);
+        this.token = cektoken
+        console.log(cektoken)
     },
 
 };

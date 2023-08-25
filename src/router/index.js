@@ -30,7 +30,6 @@ const router = createRouter({
       path: "/",
       name: "products",
       component: ProdukView,
-      beforeEnter: cekToken,
     },
     {
       path: '/category',
@@ -52,7 +51,7 @@ const router = createRouter({
       path: "/product/:id",
       name: "SingleProduk",
       component: SingleProduk,
-      beforeEnter: cekToken,
+
     },
     {
       path: '/cart',
