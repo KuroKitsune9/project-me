@@ -2,12 +2,14 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import Navbar from './components/Navbar.vue';
+import FooterComponent from './components/FooterComponent.vue';
 
 export default {
   name: 'app',
   components : {
-    Navbar
-  },
+    Navbar,
+    FooterComponent
+},
 }
 </script>
 

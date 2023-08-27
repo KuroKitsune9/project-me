@@ -6,9 +6,11 @@ const keranjang = {
   namespaced: true,
   state: {
     keranjang: [],
+    address: [],
   },
   getters: {
     getKeranjang: (state) => state.keranjang,
+    getAddress: (state) => state.address
   },
   actions: {
     async fetchKeranjang({ commit }) {
@@ -31,6 +33,23 @@ const keranjang = {
         console.log(error);
       }
     },
+    async fetchAddress({ commit }) {
+      try {
+        const dataAddress = await axios.get(
+          "https://ecommerce.olipiskandar.com/api/v1/user/addresses",
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        console.log(dataAddress.data.data);
+        commit("SET_ADDRESS", dataAddress.data.data);
+      } catch (error) {
+        alert("Ada error");
+        console.log(error);
+      }
+    },
     async DeleteKeranjang({ commit, dispatch }, keranjangId) {
       try {
         const deleteCart = await axios.post(
@@ -43,7 +62,7 @@ const keranjang = {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-          },
+          }
         );
         // console.log(deleteCart.data.message);
         // commit("DELETE_KERANJANG", deleteCart.data.message);
@@ -78,9 +97,9 @@ const keranjang = {
     SET_KERANJANG(state, keranjang) {
       state.keranjang = keranjang;
     },
-    // DELETE_KERANJANG(state, keranjang) {
-    //   state.keranjang = keranjang;
-    // },
+    SET_ADDRESS(state, address) {
+      state.address = address
+    }
   },
 };
 
