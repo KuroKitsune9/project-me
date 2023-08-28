@@ -1,133 +1,72 @@
 <template>
-    <div class="pt-20 bg-amber-50">
-        <div class="container mx-auto px-4">
-            <div class="message text-center">
-                <h1 class="text-3xl font-bold pt-10">Terimakasih Telah Memesan</h1>
-                <p>Kode Pemesanan : {{ getOrder.code }}</p>
-                <p class="italic">
-                    Terimakasih atas kepercayaan Tn./Ny. {{ getOrder.user.name }} kepada
-                    KuroKitsune
-                </p>
+    <!-- component -->
+    <div class="flex justify-center items-center h-screen bg-gray-200 text-gray-900">
+        <div class="rounded-md relative w-100% shadow-2xl p-3 bg-white">
+            <div class="py-2">
+                <div class="text-center text-xl font-bold">ORDER</div>
+                <div class="text-center text-xs font-bold">The order details</div>
+                <div class="text-center text-xs font-bold">Thanks For Buying</div>
             </div>
-            <div class="mx-10 mt-10">
-                <div class="grid grid-cols-2">
-                    <div>
-                        <dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-                            <div class="flex flex-col pb-3">
-                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
-                                    Kode Pemesanan :
-                                </dt>
-                                <dd class="text-lg font-semibold">{{ getOrder.code }}</dd>
-                            </div>
-                            <div class="flex flex-col pb-3">
-                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
-                                    Alamat Email :
-                                </dt>
-                                <dd class="text-lg font-semibold">{{ getOrder.user.email }}</dd>
-                            </div>
-                            <div class="flex flex-col py-3">
-                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
-                                    Alamat Rumah :
-                                </dt>
-                                <dd class="text-lg font-semibold">
-                                    {{ getOrder.shipping_address.address }},
-                                    {{ getOrder.shipping_address.city }},
-                                    {{ getOrder.shipping_address.state }},
-                                    {{ getOrder.shipping_address.country }},
-                                    {{ getOrder.shipping_address.postal_code }}
-                                </dd>
-                            </div>
-                            <div class="flex flex-col pt-3">
-                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
-                                    Nomor Telpon :
-                                </dt>
-                                <dd class="text-lg font-semibold">
-                                    {{ getOrder.shipping_address.phone }}
-                                </dd>
-                            </div>
-                        </dl>
-                    </div>
-                    <div>
-                        <dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-                            <div class="flex flex-col pb-3">
-                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
-                                    Metode Pembayaran :
-                                </dt>
-                                <dd class="text-lg font-semibold">
-                                    {{ getOrder.orders[0].payment_type }}
-                                </dd>
-                            </div>
-                            <div class="flex flex-col pb-3">
-                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
-                                    Metode Pengiriman :
-                                </dt>
-                                <dd class="text-lg font-semibold">
-                                    {{ getOrder.orders[0].delivery_type }}
-                                </dd>
-                            </div>
-                            <div class="flex flex-col py-3">
-                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
-                                    Alamat Tagihan :
-                                </dt>
-                                <dd class="text-lg font-semibold">
-                                    {{ getOrder.shipping_address.address }},
-                                    {{ getOrder.shipping_address.city }},
-                                    {{ getOrder.shipping_address.state }},
-                                    {{ getOrder.shipping_address.country }},
-                                    {{ getOrder.shipping_address.postal_code }}
-                                </dd>
-                            </div>
-                            <div class="flex flex-col pt-3">
-                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
-                                    Total Barang :
-                                </dt>
-                                <dd class="text-lg font-semibold">
-                                    {{ getOrder.orders[0].grand_total }}
-                                </dd>
-                            </div>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-            <div class="relative overflow-x-auto pt-10">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-amber-100 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">No.</th>
-                            <th scope="col" class="px-6 py-3">Product</th>
-                            <th scope="col" class="px-6 py-3">Quantity</th>
-                            <th scope="col" class="px-6 py-3">Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-amber-50 border-b dark:bg-gray-800 dark:border-gray-700"
-                            v-for="(order, index) in getOrder.orders[0].products.data">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ index + 1 }}
-                            </th>
-                            <td class="px-6 py-4">{{ order.name }}</td>
-                            <td class="px-6 py-4">{{ order.quantity }}</td>
-                            <td class="px-6 py-4">{{ order.total }}</td>
-                        </tr>
-                    </tbody>
+            <div class="text-center text-xs font-bold mb-1">~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
+            <div class="text-xs pl-2">
+                <table>
+                    <tr>
+                        <td><div class="text-xs mb-1">Order Code</div></td>
+                        <td>：</td>
+                        <td>{{ getOrder.code }}</td>
+                    </tr>
+                    <tr>
+                        <td><div class="text-xs mb-1">Customer</div></td>
+                        <td>：</td>
+                        <td>{{ getOrder.user.name }}</td>
+                    </tr>
+                    <tr>
+                        <td><div class="text-xs mb-1">TelePhone</div></td>
+                        <td>：</td>
+                        <td>{{ getAddress[0].phone }}</td>
+                    </tr>
+                    <tr>
+                        <td><div class="text-xs mb-1">Email</div></td>
+                        <td>：</td>
+                        <td>{{ getOrder.user.email }}</td>
+                    </tr>
+                    <tr>
+                        <td><div class="text-xs mb-1">Shipping address</div></td>
+                        <td>:</td>
+                        <td>{{ getAddress[0].address }},{{ getAddress[0].postal_code }},{{ getAddress[0].state }},{{ getAddress[0].city }},{{ getAddress[0].country }}</td>
+                    </tr>
+                    <tr>
+                        <td><div class="text-xs mb-1">Delivery Type</div></td>
+                        <td>:</td>
+                        <td>{{ getOrder.orders[0].payment_type }}</td>
+                    </tr>
+                    <tr>
+                        <td><div class="text-xs mb-1">Delivery Type</div></td>
+                        <td>:</td>
+                        <td>{{ getOrder.orders[0].delivery_type }}</td>
+                    </tr>
                 </table>
-                <div class="mt-6 border-t border-b py-2">
-                    <div class="flex items-center justify-between">
-                        <p class="text-sm font-medium text-gray-900">Total Belanja</p>
-                        <p class="font-semibold text-gray-900">Rp. {{ getOrder.grand_total }}</p>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <p class="text-sm font-medium text-gray-900">Biaya Jasa</p>
-                        <p class="font-semibold text-gray-900">
-                            Rp. {{ (getOrder.orders[0].products.data.length) * 10000 }}
-                        </p>
+            </div>
+            <div class="border-double border-t-4 border-b-4 border-l-0 border-r-0 border-gray-900 my-3">
+                <div class="flex text-sm pt-1 px-1">
+                    <span class="w-2/6">Name</span>
+                    <span class="w-2/6 text-right">Price</span>
+                    <span class="w-2/6 text-right">Number</span>
+                </div>
+                <div v-for="(order,) in getOrder.orders[0].products.data">
+                <div class="border-dashed border-t border-b border-l-0 border-r-0 border-gray-900 mt-1 my-2 py-2 px-1">
+                    <div class="flex justify-between text-sm">
+                        <span class="w-2/6 truncate">{{ order.name }}</span>
+                        <span class="w-2/6 text-right">{{ order.total }}</span>
+                        <span class="w-2/6 text-right">{{ order.quantity }}</span>
                     </div>
                 </div>
-                <div class="mt-6 flex items-center justify-between">
-                    <p class="text-sm font-medium text-gray-900">Total Harga : </p>
-                    <p class="text-2xl font-semibold text-gray-900">
-                        Rp. {{ (getOrder.grand_total) + (getOrder.orders[0].products.data.length * 10000) }}
-                    </p>
+            </div>
+            </div>
+            <div class="text-xs">
+                <div class="text-right">
+                    <div>Time: {{ getOrder.date }}</div>
+                    <div class="font-bold text-sm">Total: {{ getOrder.grand_total }}</div>
                 </div>
             </div>
         </div>
@@ -135,17 +74,27 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
     props: ['orderCode'],
     computed: {
         ...mapGetters('order', ['getOrder']),
+        ...mapGetters("keranjang",  ["getAddress", "getKeranjang"]),
+
+        calculateTotal() {
+            return this.getKeranjang.reduce((total, cartItem) => {
+                return total + cartItem.regular_price * cartItem.qty;
+            }, 0);
+        },
     },
-    // methods: {
-    //     ...mapState('order', ['fetchOrderData'])
-    // },
+    methods: {
+        ...mapActions("keranjang", ["fetchAddress"]),
+        ...mapActions('keranjang', ['fetchKeranjang']),
+    },
     created() {
         this.$store.dispatch('order/fetchOrderData', this.orderCode);
+        this.fetchAddress()
+        this.fetchKeranjang();
     },
 };
 </script>

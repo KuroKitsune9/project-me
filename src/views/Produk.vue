@@ -8,7 +8,7 @@
                 class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <router-link :to="{ name: 'SingleProduk', params: { id: data.id } }" class="group">
                     
-                    <img class="" src="" alt="product image" style="height: 100px; width: 100px;"/>
+                    <img class="" src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph" alt="product image" style="height: 100px; width: 150px;"/>
                 </router-link>
                 <div class="px-5 pb-5">
                     

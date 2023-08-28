@@ -34,7 +34,7 @@
                             <div class="lg:order-2 lg:ml-5">
                                 <div class="max-w-xl overflow-hidden rounded-lg">
                                     <img class="h-full w-full max-w-full object-cover"
-                                        src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Bring_Me_The_Horizont_-_Southside_Festival_2022_-_IMG_4429_-_1_%28Cropped%29.jpg"
+                                        src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph"
                                         alt="Fotone" />
                                 </div>
                             </div>
@@ -44,19 +44,19 @@
                                     <button type="button"
                                         class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center">
                                         <img class="h-full w-full object-cover"
-                                            src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Bring_Me_The_Horizont_-_Southside_Festival_2022_-_IMG_4429_-_1_%28Cropped%29.jpg"
+                                            src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph"
                                             alt="" />
                                     </button>
                                     <button type="button"
                                         class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
                                         <img class="h-full w-full object-cover"
-                                            src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Bring_Me_The_Horizont_-_Southside_Festival_2022_-_IMG_4429_-_1_%28Cropped%29.jpg"
+                                            src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph"
                                             alt="" />
                                     </button>
                                     <button type="button"
                                         class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
                                         <img class="h-full w-full object-cover"
-                                            src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Bring_Me_The_Horizont_-_Southside_Festival_2022_-_IMG_4429_-_1_%28Cropped%29.jpg"
+                                            src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph"
                                             alt="" />
                                     </button>
                                 </div>

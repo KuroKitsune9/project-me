@@ -20,7 +20,7 @@
                                     <td class="py-4">
                                         <div class="flex items-center">
                                             <img class="h-18 w-40 mr-4"
-                                                src="https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/07/19/IMG_6701-3614424737.jpeg"
+                                                src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph"
                                                 alt="Product image">
                                             <span class="font-semibold">{{ data.name }}</span>
                                         </div>
