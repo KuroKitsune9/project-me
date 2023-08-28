@@ -10,6 +10,8 @@ import Register from '../views/Register.vue'
 import Cart from '../views/Cart.vue'
 import brand from '../views/Brand.vue';
 import user from '../views/Profile.vue';
+import checkout from '../views/Checkout.vue'
+import order from '../views/Order.vue';
 
 function cekToken(to, from, next) {
   var isAuthenticated = false;
@@ -32,46 +34,57 @@ const router = createRouter({
       component: ProdukView,
     },
     {
-      path: '/category',
-      name: 'category',
+      path: "/category",
+      name: "category",
       component: Category,
       beforeEnter: cekToken,
     },
     {
-      path: '/login',
-      name: 'Login',
-      component: Login
+      path: "/login",
+      name: "Login",
+      component: Login,
     },
     {
-      path: '/register',
-      name: 'register',
-      component: Register
+      path: "/register",
+      name: "register",
+      component: Register,
     },
     {
       path: "/product/:id",
       name: "SingleProduk",
       component: SingleProduk,
-
     },
     {
-      path: '/cart',
-      name: 'cart',
+      path: "/cart",
+      name: "cart",
       component: Cart,
       beforeEnter: cekToken,
     },
     {
-      path: '/brand',
-      name: 'brand',
+      path: "/brand",
+      name: "brand",
       component: brand,
       beforeEnter: cekToken,
     },
     {
-      path: '/profile',
-      name: 'profile',
+      path: "/profile",
+      name: "profile",
       component: user,
       beforeEnter: cekToken,
-    }
-  ]
-})
+    },
+    {
+      path: "/checkout",
+      name: "checkout",
+      component: checkout,
+      beforeEnter: cekToken,
+    },
+    {
+      path: "/order/:orderCode",
+      name: "order",
+      component: order,
+      props: true,
+    },
+  ],
+});
 
 export default router

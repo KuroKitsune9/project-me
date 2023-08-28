@@ -7,10 +7,12 @@ const keranjang = {
   state: {
     keranjang: [],
     address: [],
+    dataCheckout: [],
   },
   getters: {
     getKeranjang: (state) => state.keranjang,
-    getAddress: (state) => state.address
+    getAddress: (state) => state.address,
+    getCheckout: (state) => state.dataCheckout,
   },
   actions: {
     async fetchKeranjang({ commit }) {
@@ -26,7 +28,7 @@ const keranjang = {
             },
           }
         );
-        console.log(dataKeranjang.data.cart_items.data);
+        // console.log(dataKeranjang.data.cart_items.data);
         commit("SET_KERANJANG", dataKeranjang.data.cart_items.data);
       } catch (error) {
         alert("Ada error");
@@ -45,6 +47,7 @@ const keranjang = {
         );
         console.log(dataAddress.data.data);
         commit("SET_ADDRESS", dataAddress.data.data);
+        return dataAddress.data
       } catch (error) {
         alert("Ada error");
         console.log(error);
@@ -92,14 +95,53 @@ const keranjang = {
         dispatch("keranjang/fetchKeranjang", null, { root: true });
       }
     },
+    async checkoutCart(
+      { commit, dispatch },
+      {
+        shippingAddress,
+        billingAddress,
+        paymentType,
+        deliveryType,
+        cart_item_ids,
+      }
+    ) {
+      try {
+        const response = await axios.post(
+          `https://ecommerce.olipiskandar.com/api/v1/checkout/order/store`,
+          {
+            shipping_address_id: shippingAddress,
+            billing_address_id: billingAddress,
+            payment_type: paymentType,
+            delivery_type: deliveryType,
+            cart_item_ids: cart_item_ids,
+            transactionId: null,
+            receipt: null,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        commit("SET_CHECKOUT", response.data);
+        console.log(response.data.message);
+        dispatch("fetchKeranjang");
+      } catch (error) {
+        alert("Error");
+        console.log(error);
+      }
+    },
   },
   mutations: {
     SET_KERANJANG(state, keranjang) {
       state.keranjang = keranjang;
     },
     SET_ADDRESS(state, address) {
-      state.address = address
-    }
+      state.address = address;
+    },
+    SET_CHECKOUT(state, keranjang) {
+      state.dataCheckout = keranjang;
+    },
   },
 };
 

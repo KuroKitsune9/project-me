@@ -20,11 +20,13 @@ const auth = {
                 const token = response.data.access_token;
                 if(token == 'undefined'){
                     this.$router.push('/login')
+                    swal("error", "you failed login", "error");
+                } else if (token == token) {
+                swal("succes", "you success login", "success");
                 }
 
                 // Save token to localStorage
                 localStorage.setItem("token", token);
-                swal("success", "you success login", "success");
                 commit("SET_TOKEN", token);
                 console.log("Token saved:", token);
                 return true;

@@ -30,6 +30,8 @@ export default {
   <RouterView /> -->
   <Navbar></Navbar>
   <router-view></router-view>
+  <br>
+  <FooterComponent></FooterComponent>
 </template>
 
 <style scoped>

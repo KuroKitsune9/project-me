@@ -1,9 +1,9 @@
 <template>
-    <div class=" h-screen py-8">
-        <div class="container mx-auto px-4">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+        <div class="container mx-auto px-4 ">
             <h1 class="text-2xl font-semibold mb-4">Shopping Cart</h1>
             <div class="flex flex-col md:flex-row gap-4">
-                <div class="md:w-3/4">
+                <div class="md:w-3/4 col">
                     <div class="bg-white rounded-lg shadow-md p-6 mb-4" v-for="(data) in getKeranjang" :key="data.cart_id">
                         <table class="w-full">
                             <thead>
@@ -51,7 +51,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="md:w-1/4" >
+                <div class="md:w-1/4">
                     <div class="bg-white rounded-lg shadow-md p-6">
                         <h2 class="text-lg font-semibold mb-4">Summary</h2>
                         <div class="flex justify-between mb-2">
@@ -67,12 +67,14 @@
                             <span class="font-semibold">Total</span>
                             <span class="font-semibold">{{ formatCurrency(calculateTotal) }}</span>
                         </div>
+                        <router-link to="/checkout">
                         <button class="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</button>
+                        </router-link>
                     </div>
                 </div>
+                </div>
+                </div>
             </div>
-        </div>
-    </div>
 </template>
 
 <script>

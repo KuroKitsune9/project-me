@@ -21,7 +21,7 @@ const user = {
 
                     }
                 })
-                console.log(dataUser.data)
+                // console.log(dataUser.data)
                 commit('SET_USER', dataUser.data['user'])
             } catch (error) {
                 alert('Ada error')
