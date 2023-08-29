@@ -6,35 +6,24 @@
         <div class="grid md:grid-cols-4 gap-8">
             <div v-for="data in getProducts" :key="data.id"
                 class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <router-link :to="{ name: 'SingleProduk', params: { id: data.id } }" class="group">
-                    
-                    <img class="" src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph" alt="product image" style="height: 100px; width: 150px;"/>
-                </router-link>
-                <div class="px-5 pb-5">
-                    
-                    <h4>{{ data.name }}</h4>
-                    <br>
-                    <h4>{{  }}</h4>
-                    <div class="flex items-center mt-2.5 mb-5">
-                        <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 22 20">
-                            <path
-                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <span
-                            class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{{ data.rating }}</span>
+                
+                    <img class="object-cover w-full rounded-md h-72 xl:h-80" src="https://images.unsplash.com/photo-1603320410149-db26b12d5c2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80" alt="T-Shirt">
+                
+                <div class="flex flex-col items-center justify-center w-full max-w-lg mx-auto">
+                            
+                            <h4 class="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200">{{ data.name }}</h4>
+                            <p class="text-black-500">{{ formatCurrency(data.base_price) }}</p>
+
+                            <button class="flex items-center justify-center w-full px-2 py-2 mt-4 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-800 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700">
+                                <router-link :to="{ name: 'SingleProduk', params: { id: data.id } }" class="group">
+                                <span class="mx-1">View Produk</span>
+                            </router-link>
+                            </button>
+                        </div>
                     </div>
-                    <div class="flex items-center justify-between">
-                        <p class="text-3xl font-bold text-gray-900 dark:text-white">Rp{{ data.base_price }}</p>
-                    </div>
-                    
                 </div>
-            
             </div>
-        
         </div>
-    </div>
-    </div>
 </template>
 
 <script>
@@ -46,6 +35,9 @@ export default {
     },
     methods: {
         ...mapActions('produk', ['fetchProduct']),
+        formatCurrency(amount) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(amount);
+        }
     },
     created() {
         this.fetchProduct();

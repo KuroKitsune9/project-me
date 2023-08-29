@@ -18,12 +18,6 @@ const auth = {
                     credentials
                 );
                 const token = response.data.access_token;
-                if(token == 'undefined'){
-                    this.$router.push('/login')
-                    swal("error", "you failed login", "error");
-                } else if (token == token) {
-                swal("succes", "you success login", "success");
-                }
 
                 // Save token to localStorage
                 localStorage.setItem("token", token);

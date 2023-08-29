@@ -42,7 +42,7 @@
                 <div v-for="product in getKeranjang" :key="product.cart_id"
                     class="flex flex-col rounded-lg bg-white sm:flex-row">
                     <img class="m-2 h-24 w-28 rounded-md border object-cover object-center"
-                        src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph"
+                        src="https://images.unsplash.com/photo-1603320410149-db26b12d5c2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
                         alt="" />
                     <div class="flex w-full flex-col px-4 py-4">
                         <span class="font-semibold">{{ product.name }}</span>

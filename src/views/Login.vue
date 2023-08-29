@@ -117,8 +117,10 @@ methods: {
         if (success) {
             // Redirect to the desired route on successful login
             this.$router.push('/');
+            swal("succes", "you success login", "success");
         } else {
             alert("Login Failed");
+            swal("error", "you failed login", "error");
         }
     },
 },

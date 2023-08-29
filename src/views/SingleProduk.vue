@@ -34,7 +34,7 @@
                             <div class="lg:order-2 lg:ml-5">
                                 <div class="max-w-xl overflow-hidden rounded-lg">
                                     <img class="h-full w-full max-w-full object-cover"
-                                        src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph"
+                                        src="https://images.unsplash.com/photo-1603320410149-db26b12d5c2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
                                         alt="Fotone" />
                                 </div>
                             </div>
@@ -44,19 +44,19 @@
                                     <button type="button"
                                         class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center">
                                         <img class="h-full w-full object-cover"
-                                            src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph"
+                                            src="https://images.unsplash.com/photo-1603320410149-db26b12d5c2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
                                             alt="" />
                                     </button>
                                     <button type="button"
                                         class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
                                         <img class="h-full w-full object-cover"
-                                            src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph"
+                                            src="https://images.unsplash.com/photo-1603320410149-db26b12d5c2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
                                             alt="" />
                                     </button>
                                     <button type="button"
                                         class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
                                         <img class="h-full w-full object-cover"
-                                            src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph"
+                                            src="https://images.unsplash.com/photo-1603320410149-db26b12d5c2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
                                             alt="" />
                                     </button>
                                 </div>
@@ -102,21 +102,10 @@
                             </div>
                             <p class="ml-2 text-sm font-medium text-gray-500">{{ product.rating }}</p>
                         </div>
-
-                        <h2 class="mt-8 text-base text-gray-900">Category</h2>
-                        <div class="mt-3 flex select-none flex-wrap items-center gap-1">
-                            <label class="">
-                                <input type="radio" name="type" value="Powder" class="peer sr-only" checked />
-                                <p
-                                    class="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
-                                    {{ product.category }}</p>
-                            </label>
-                        </div>
-
                         <div
                             class="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
                             <div class="flex items-end">
-                                <h1 class="text-3xl font-bold">${{ product.base_price }}</h1>
+                                <h1 class="text-3xl font-bold">{{ formatCurrency(product.base_price) }}</h1>
                                 <!-- <span class="text-base">/month</span> -->
                             </div>
                             <div v-if="token">
@@ -142,32 +131,7 @@
                                     </button></router-link>
                             </div>
                         </div>
-
-                        <ul class="mt-8 space-y-2">
-                            <li class="flex items-center text-left text-sm font-medium text-gray-600">
-                                <svg class="mr-2 block h-5 w-5 align-middle text-gray-500"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                        class=""></path>
-                                </svg>
-                                Free shipping worldwide
-                            </li>
-
-                            <li class="flex items-center text-left text-sm font-medium text-gray-600">
-                                <svg class="mr-2 block h-5 w-5 align-middle text-gray-500"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-                                        class=""></path>
-                                </svg>
-                                Cancel Anytime
-                            </li>
-                        </ul>
                     </div>
-
                     <div class="lg:col-span-3">
                         <div class="border-b border-gray-300">
                             <nav class="flex gap-4">
@@ -213,6 +177,9 @@ export default {
     methods: {
         ...mapActions("produk", ["fetchSingleProduct", "fetchProduct", "AddKeranjang"]),
         ...mapActions("keranjang", ["fetchKeranjang"]),
+        formatCurrency(amount) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(amount);
+        }
     },
     beforeMount() {
         this.fetchProduct()

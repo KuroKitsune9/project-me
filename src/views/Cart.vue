@@ -20,7 +20,7 @@
                                     <td class="py-4">
                                         <div class="flex items-center">
                                             <img class="h-18 w-40 mr-4"
-                                                src="https://img.freepik.com/free-vector/hand-drawn-fruit-collection_23-2148950068.jpg?size=626&ext=jpg&ga=GA1.2.1932534021.1690956008&semt=sph"
+                                                src="https://images.unsplash.com/photo-1603320410149-db26b12d5c2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
                                                 alt="Product image">
                                             <span class="font-semibold">{{ data.name }}</span>
                                         </div>
@@ -104,6 +104,9 @@ export default {
     },
     methods: {
         ...mapActions("keranjang", ["fetchKeranjang", "DeleteKeranjang", "change_qty", "fetchAddress"]),
+        formatCurrency(amount) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(amount);
+        },
         watch: {
             calculateTotal: {
                 immediate: true,

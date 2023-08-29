@@ -36,7 +36,7 @@
                         <td>{{ getAddress[0].address }},{{ getAddress[0].postal_code }},{{ getAddress[0].state }},{{ getAddress[0].city }},{{ getAddress[0].country }}</td>
                     </tr>
                     <tr>
-                        <td><div class="text-xs mb-1">Delivery Type</div></td>
+                        <td><div class="text-xs mb-1">payment Type</div></td>
                         <td>:</td>
                         <td>{{ getOrder.orders[0].payment_type }}</td>
                     </tr>
@@ -57,7 +57,7 @@
                 <div class="border-dashed border-t border-b border-l-0 border-r-0 border-gray-900 mt-1 my-2 py-2 px-1">
                     <div class="flex justify-between text-sm">
                         <span class="w-2/6 truncate">{{ order.name }}</span>
-                        <span class="w-2/6 text-right">{{ order.total }}</span>
+                        <span class="w-2/6 text-right">{{ formatCurrency(order.total) }}</span>
                         <span class="w-2/6 text-right">{{ order.quantity }}</span>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
             <div class="text-xs">
                 <div class="text-right">
                     <div>Time: {{ getOrder.date }}</div>
-                    <div class="font-bold text-sm">Total: {{ getOrder.grand_total }}</div>
+                    <div class="font-bold text-sm">Total: {{ formatCurrency(getOrder.grand_total) }}</div>
                 </div>
             </div>
         </div>
@@ -90,6 +90,9 @@ export default {
     methods: {
         ...mapActions("keranjang", ["fetchAddress"]),
         ...mapActions('keranjang', ['fetchKeranjang']),
+        formatCurrency(amount) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(amount);
+        },
     },
     created() {
         this.$store.dispatch('order/fetchOrderData', this.orderCode);
