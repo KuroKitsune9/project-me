@@ -115,7 +115,6 @@ methods: {
         const success = await this.login(credentials);
 
         if (success) {
-            // Redirect to the desired route on successful login
             this.$router.push('/');
             swal("succes", "you success login", "success");
         } else {

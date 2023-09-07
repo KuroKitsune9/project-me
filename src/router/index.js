@@ -12,6 +12,7 @@ import brand from '../views/Brand.vue';
 import user from '../views/Profile.vue';
 import checkout from '../views/Checkout.vue'
 import order from '../views/Order.vue';
+import DetailBrand from '../views/DetailBrand.vue'
 
 function cekToken(to, from, next) {
   var isAuthenticated = false;
@@ -82,6 +83,12 @@ const router = createRouter({
       path: "/order/:orderCode",
       name: "order",
       component: order,
+      props: true,
+    },
+    {
+      path: "/brand/:id",
+      name: "DetailBrand",
+      component: DetailBrand,
       props: true,
     },
   ],

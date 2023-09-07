@@ -6,7 +6,7 @@
         </center>
             <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 <div v-for="data in getBrand" class="group relative">
-                    <!-- <router-link :to="/category/ + category"> -->
+                    <router-link :to="{ name: 'DetailBrand', params: { id: data.id } }">
                         <div 
                             class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                             <img :src="data.logo"
@@ -24,7 +24,7 @@
                                 </h3>
                             </div>
                         </div>
-                    <!-- </router-link> -->
+                    </router-link>
                 </div>
             </div>
         </div>

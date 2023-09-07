@@ -48,6 +48,18 @@
                                 </td>
                                 <td class="px-2 py-2">{{ getAddress[0].city }}</td>
                             </tr>
+                            <tr>
+                                <td class="px-2 py-2 text-gray-500 font-semibold">Your wishlist</td>
+                                <td class="px-2 py-2 text-gray-500 font-semibold">:
+                                </td>
+                                <td class="px-2 py-2">{{  }}</td>
+                            </tr>
+                            <tr>
+                                <td class="px-2 py-2 text-gray-500 font-semibold">Product Your Order</td>
+                                <td class="px-2 py-2 text-gray-500 font-semibold">:
+                                </td>
+                                <td class="px-2 py-2">{{ getDashboard.total_order_products }}</td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -67,16 +79,20 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
     computed: {
-        ...mapGetters('user', ['getUser']),
+        ...mapGetters('user', ['getUser', 'getDashboard']),
         ...mapGetters("keranjang",  ["getAddress"]),
+        ...mapGetters("wishlist", ["getWishlist"]),
     },
     methods: {
-        ...mapActions('user', ['fetchUser']),
+        ...mapActions('user', ['fetchUser', 'fetchDashboard']),
         ...mapActions("keranjang", ["fetchAddress"]),
+        ...mapActions("wishlist", ["fetchWishlist"])
     },
     created() {
         this.fetchUser();
-        this.fetchAddress()
+        this.fetchAddress();
+        this.fetchWishlist();
+        this.fetchDashboard();
     },
 }
 </script>

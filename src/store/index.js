@@ -11,6 +11,7 @@ import auth from "./modules/auth.js";
 import brand from "./modules/brand.js";
 import keranjang from "./modules/keranjang.js"
 import order from "./modules/order.js";
+import wishlist from "./modules/wishlist";
 
 const store = createStore({
     state: {
@@ -28,7 +29,8 @@ const store = createStore({
         // surah,
         brand,
         keranjang,
-        order
+        order,
+        wishlist
     },
 });
 
