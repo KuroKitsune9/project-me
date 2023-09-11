@@ -13,6 +13,7 @@ import user from '../views/Profile.vue';
 import checkout from '../views/Checkout.vue'
 import order from '../views/Order.vue';
 import DetailBrand from '../views/DetailBrand.vue'
+import DetailCategory from '../views/DetailCategory.vue'
 
 function cekToken(to, from, next) {
   var isAuthenticated = false;
@@ -91,6 +92,12 @@ const router = createRouter({
       component: DetailBrand,
       props: true,
     },
+    {
+      path: '/category/:slug',
+      name: 'DetailCategory',
+      component: DetailCategory,
+      props: true
+    }
   ],
 });
 
