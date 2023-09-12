@@ -85,7 +85,7 @@
 
                 <p class="mb-4 text-center">
                     New on KuroKitsune Store?
-                    <router-link to="/register"><a href="">Bikin akun Dong</a></router-link>
+                    <router-link to="/register"><a href=""><u>Bikin akun Dong</u></a></router-link>
                 </p>
             </div>
         </div>
@@ -114,11 +114,11 @@ methods: {
 
         const success = await this.login(credentials);
 
-        if (success) {
+        if (success == true) {
             this.$router.push('/');
             swal("succes", "you success login", "success");
-        } else {
-            alert("Login Failed");
+        } else if(success == false) {
+            this.$router.push('/login')
             swal("error", "you failed login", "error");
         }
     },

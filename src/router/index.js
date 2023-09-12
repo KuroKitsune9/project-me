@@ -14,6 +14,7 @@ import checkout from '../views/Checkout.vue'
 import order from '../views/Order.vue';
 import DetailBrand from '../views/DetailBrand.vue'
 import DetailCategory from '../views/DetailCategory.vue'
+import PurchaseHistory from '../views/PurchaseHistoty.vue'
 
 function cekToken(to, from, next) {
   var isAuthenticated = false;
@@ -98,7 +99,12 @@ const router = createRouter({
       name: 'DetailCategory',
       component: DetailCategory,
       props: true
-    }
+    },
+    {
+      path: "/history",
+      name: "history",
+      component: PurchaseHistory,
+    },
   ],
 });
 
