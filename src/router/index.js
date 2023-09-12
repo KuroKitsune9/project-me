@@ -34,6 +34,7 @@ const router = createRouter({
       path: "/",
       name: "products",
       component: ProdukView,
+      beforeEnter: cekToken,
     },
     {
       path: "/category",
