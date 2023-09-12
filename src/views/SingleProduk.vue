@@ -127,7 +127,7 @@
                             </path>
                         </svg>
                     </button>
-             <button type="button" @click="DeleteWishlist(product.id)" class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">Delete from wishlist</button>
+             <button type="button" @click="DeleteWishlist(product.id)" class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-8 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">Delete from wishlist</button>
                             </div>
                             <div v-else>
                                 <router-link to="/login"><button type="submit"

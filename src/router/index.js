@@ -15,6 +15,7 @@ import order from '../views/Order.vue';
 import DetailBrand from '../views/DetailBrand.vue'
 import DetailCategory from '../views/DetailCategory.vue'
 import PurchaseHistory from '../views/PurchaseHistoty.vue'
+import DetailWishlist from '../views/DetailWishlist.vue'
 
 function cekToken(to, from, next) {
   var isAuthenticated = false;
@@ -104,6 +105,11 @@ const router = createRouter({
       path: "/history",
       name: "history",
       component: PurchaseHistory,
+    },
+    {
+      path: "/your-wishlist",
+      name: "history",
+      component: DetailWishlist,
     },
   ],
 });

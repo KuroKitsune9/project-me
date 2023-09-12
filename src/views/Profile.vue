@@ -49,10 +49,10 @@
                                 <td class="px-2 py-2">{{ getAddress[0].city }}</td>
                             </tr>
                             <tr>
-                                <td class="px-2 py-2 text-gray-500 font-semibold">Your wishlist</td>
+                                <td class="px-2 py-2 text-gray-500 font-semibold"><router-link to="/your-wishlist"><u>Your wishlist</u></router-link></td>
                                 <td class="px-2 py-2 text-gray-500 font-semibold">:
                                 </td>
-                                <td class="px-2 py-2">{{ getWishlist.data.length }}</td>
+                                <td class="px-2 py-2">{{ getWishlist.length }}</td>
                             </tr>
                             <tr>
                                 <td class="px-2 py-2 text-gray-500 font-semibold">Product Your Order</td>

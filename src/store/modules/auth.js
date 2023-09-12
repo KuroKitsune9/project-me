@@ -56,6 +56,7 @@ const auth = {
             const token = localStorage.getItem("token");
             localStorage.removeItem("token");
             commit("SET_TOKEN", "");
+            // alert('anda berhasil keluar')
             // Log token removed
             console.log("Token removed:", token);
             window.location.href = "/login";

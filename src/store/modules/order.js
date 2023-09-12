@@ -17,7 +17,7 @@ const order = {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-        commit("SET_ORDER", responseOrder.data["data"]);
+        commit("SET_ORDER", responseOrder.data);
         console.log(responseOrder.data);
       } catch (error) {
         console.error(error);

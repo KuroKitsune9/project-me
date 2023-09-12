@@ -113,11 +113,11 @@ methods: {
         };
 
         const success = await this.login(credentials);
-
-        if (success == true) {
-            this.$router.push('/');
+        
+        if (success === true) {
+            this.$router.push('/')
             swal("succes", "you success login", "success");
-        } else if(success == false) {
+        } else if(success === false) {
             this.$router.push('/login')
             swal("error", "you failed login", "error");
         }
