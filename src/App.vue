@@ -3,12 +3,14 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import Navbar from './components/Navbar.vue';
 import FooterComponent from './components/FooterComponent.vue';
+import PageLoader from './views/PageLoader.vue';
 
 export default {
   name: 'app',
   components : {
     Navbar,
-    FooterComponent
+    FooterComponent,
+    PageLoader
 },
 }
 </script>
@@ -29,6 +31,7 @@ export default {
 
   <RouterView /> -->
   <Navbar></Navbar>
+  <PageLoader />
   <router-view></router-view>
   <br>
   <FooterComponent></FooterComponent>

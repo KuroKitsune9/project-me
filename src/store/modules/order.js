@@ -4,9 +4,11 @@ const order = {
   namespaced: true,
   state: {
     orderData: [],
+    orderHistory:[]
   },
   getters: {
     getOrder: (state) => state.orderData,
+    getorderhistory: (state) => state.orderHistory
   },
   actions: {
     async fetchOrderData({ commit }, orderCode) {
@@ -17,40 +19,37 @@ const order = {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-        commit("SET_ORDER", responseOrder.data);
+        commit("SET_ORDER", responseOrder.data["data"]);
         console.log(responseOrder.data);
       } catch (error) {
         console.error(error);
         alert(error);
       }
     },
-    async getOrderData({ commit }, page) {
+    async fetchOrderhistory({ commit }, orderCode) {
       try {
-        const urlOrder = `https://ecommerce.olipiskandar.com/api/v1/user/orders`;
-        const DataOrder = await axios.get(urlOrder,
-          {
-            page: page
-          },
-          {
+        const urlOrder = "https://ecommerce.olipiskandar.com/api/v1/user/orders";
+        const responseOrderHitory = await axios.get(urlOrder, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-        commit("SET_ORDERDATA", DataOrder.data);
-        console.log(DataOrder.data);
+        commit("SET_ORDER_HISTORY", responseOrderHitory.data.data);
+        console.log(responseOrderHitory.data['data']);
+        // console.log(responseOrderHitory.orders.products);
       } catch (error) {
         console.error(error);
         alert(error);
       }
     },
-},
+  },
   mutations: {
     SET_ORDER(state, order) {
       state.orderData = order;
     },
-    SET_ORDERDATA(state, order) {
-      state.orderData = order
-    }
+    SET_ORDER_HISTORY(state, history) {
+      state.orderHistory = history;
+    },
   },
 };
 

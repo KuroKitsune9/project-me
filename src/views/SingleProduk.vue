@@ -159,12 +159,12 @@
                     </div>
                 </div>
             </div>
-            <div v-else>
-                <center>
-                    <img src="https://hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="Girl in a jacket" width="500"
-                        height="600">
-                </center>
-            </div>
+                <div v-else>
+                    <center>
+                        <img src="https://hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif" alt="Girl in a jacket" width="500"
+                            height="600">
+                    </center>
+                </div>
         </div>
     </section>
 </template>

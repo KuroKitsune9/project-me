@@ -60,9 +60,9 @@
                                 </td>
                                 <td class="px-2 py-2">{{ getDashboard.total_order_products }}</td>
                             </tr>
-                            <!-- <tr>
-                                <td class="px-2 py-2 text-gray-500 font-semibold"><router-link to="/history"><u>Purchase History</u></router-link></td>
-                            </tr> -->
+                            <tr>
+                                <td class="px-2 py-2 text-gray-500 font-semibold"><router-link to="/purchase-history"><u>See your Purchase History</u></router-link></td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -129,6 +129,56 @@
             </div>
         </div>
     </div>
+    <h2 class="text-2xl font-semibold tracking-tight text-gray-900 px-7 py-8">Product Your Order</h2>
+    <!-- Bagiab Table Recent purchase -->
+    <div class="flex flex-col">
+        <div class="overflow-x-auto sm:mx-0.5 lg:mx-0.5">
+            <div class="py-1 inline-block min-w-full sm:px-6 lg:px-6">
+                <div class="overflow-hidden">
+                    <table class="min-w-full" >
+                        <thead class="bg-gray-200 border-b">
+                            <tr>
+                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                    id barang
+                                </th>
+                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                    gambar
+                                </th>
+                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                    nama barang
+                                </th>
+                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                    Discount
+                                </th>
+                                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                    Harga
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody v-for="recent in getrecentProduct" >
+                            <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ recent.id }}</td>
+                                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <router-link :to="{ name: 'SingleProduk', params: { id: recent.id } }">
+                                    <img class="h-20" src="https://images.unsplash.com/photo-1603320410149-db26b12d5c2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80" alt="">
+                                </router-link>
+                                </td>
+                                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    {{ recent.name }}
+                                </td>
+                                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    {{ formatCurrency(recent.base_discounted_price) }}
+                                </td>
+                                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    {{ formatCurrency(recent.base_price) }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -136,20 +186,27 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
     computed: {
-        ...mapGetters('user', ['getUser', 'getDashboard']),
+        ...mapGetters('user', ['getUser', 'getDashboard', 'getrecentProduct']),
         ...mapGetters("keranjang", ["getAddress"]),
         ...mapGetters("wishlist", ["getWishlist"]),
+        ...mapGetters("order", ["getorderhistory"])
     },
     methods: {
-        ...mapActions('user', ['fetchUser', 'fetchDashboard']),
+        ...mapActions('user', ['fetchUser', 'fetchDashboard', 'fetchRecentproduct']),
         ...mapActions("keranjang", ["fetchAddress"]),
-        ...mapActions("wishlist", ["fetchWishlist"])
+        ...mapActions("wishlist", ["fetchWishlist"]),
+        ...mapActions("order", ["fetchOrderhistory"]),
+        formatCurrency(amount) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(amount);
+        },
     },
     created() {
         this.fetchUser();
         this.fetchAddress();
         this.fetchWishlist();
         this.fetchDashboard();
+        this.fetchRecentproduct();
+        this.fetchOrderhistory();
     },
 }
 </script>

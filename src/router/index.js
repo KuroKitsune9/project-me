@@ -36,7 +36,7 @@ const router = createRouter({
       path: "/",
       name: "products",
       component: ProdukView,
-      beforeEnter: cekToken,
+      // beforeEnter: cekToken,
     },
     {
       path: "/category",
@@ -102,13 +102,13 @@ const router = createRouter({
       props: true
     },
     {
-      path: "/history",
-      name: "history",
+      path: "/purchase-history",
+      name: "purchase-history",
       component: PurchaseHistory,
     },
     {
       path: "/your-wishlist",
-      name: "history",
+      name: "your-wishlist",
       component: DetailWishlist,
     },
   ],

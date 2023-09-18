@@ -6,10 +6,12 @@ const user = {
     state: {
         UserData: [],
         Dashboard: [],
+        recentProduct: [],
     },
     getters: {
         getUser: (state) => state.UserData,
         getDashboard: (state) => state.UserDashboard,
+        getrecentProduct: (state) => state.getrecentProduct
     },
     actions: {
         async fetchUser({ commit }) {
@@ -40,7 +42,23 @@ const user = {
                 console.log(dataDashboard.data)
                 commit('SET_DASHBOARD', dataDashboard.data)
             } catch (error) {
-                alert('Ada error')
+                // alert('Ada error')
+                console.log(error)
+            }
+        },
+        async fetchRecentproduct({ commit }) {
+            try {
+                const dataRecent = await axios.get(
+                    'https://ecommerce.olipiskandar.com/api/v1/user/dashboard', {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+
+                    }
+                })
+                console.log(dataRecent.data.recent_purchased_products.data)
+                commit('SET_RECENT_PRODUCT', dataRecent.data.recent_purchased_products.data)
+            } catch (error) {
+                // alert('Ada error')
                 console.log(error)
             }
         },
@@ -51,6 +69,9 @@ const user = {
         },
         SET_DASHBOARD(state, dashboard){
             state.UserDashboard = dashboard
+        },
+        SET_RECENT_PRODUCT(state, recent) {
+            state.getrecentProduct = recent
         }
     }
 }

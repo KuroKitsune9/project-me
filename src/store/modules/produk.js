@@ -25,7 +25,7 @@ const product = {
                 const dataProduct = await axios.get("https://ecommerce.olipiskandar.com/api/v1/product/search")
                 commit('SET_PRODUCTS', dataProduct.data['products']['data'])
             } catch (error) {
-                alert('Ada error')
+                // alert('Ada error')
                 console.log(error)
             }
         },
